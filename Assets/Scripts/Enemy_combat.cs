@@ -3,11 +3,23 @@ using UnityEngine;
 public class Enemy_combat : MonoBehaviour
 {
     public int damage = 1;
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Transform attackPoint;
+    public float weaponRange;
+    public float knockbackForce;
+    public float stunTime;
+    public LayerMask playerLayer;
+
+    public void Attack()
     {
-        if (collision.gameObject.tag == "Player")
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, playerLayer);
+
+        if (hits.Length > 0)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            foreach (Collider2D hit in hits)
+            {
+                hit.GetComponent<PlayerHealth>().ChangeHealth(-damage);
+                hit.GetComponent<PlayerMovement>().Knockback(transform, knockbackForce, stunTime);
+            }
         }
     }
 }

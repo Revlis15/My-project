@@ -36,15 +36,21 @@ public class Enemy_movement : MonoBehaviour
 
     void Chase()
     {
+        Vector2 direction = (player.position - transform.position).normalized;
+
+        const float turnThreshold = 0.01f;
+
+        if ((direction.x > turnThreshold && facingDir == -1) ||
+            (direction.x < -turnThreshold && facingDir == 1))
+        {
+            Flip();
+        }
+
+        // If close enough, switch to attack (flip already handled above)
         if (Vector2.Distance(transform.position, player.transform.position) <= attackRange)
         {
             ChangeState(EnemyState.Attack);
         }
-        else if (player.position.x > transform.position.x && facingDir == -1 || player.position.x < transform.position.x && facingDir == 1)
-        {
-            Flip();
-        }
-        Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
     }
 

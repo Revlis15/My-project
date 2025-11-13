@@ -2197,6 +2197,7 @@ GameObject:
   - component: {fileID: 58378611}
   - component: {fileID: 58378612}
   - component: {fileID: 58378613}
+  - component: {fileID: 58378614}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2332,10 +2333,11 @@ Transform:
   m_GameObject: {fileID: 58378605}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6, z: 0}
+  m_LocalPosition: {x: -4.1, y: 5.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1891660200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &58378611
@@ -2376,6 +2378,7 @@ MonoBehaviour:
   facingDirection: 1
   rb: {fileID: 58378608}
   anim: {fileID: 58378611}
+  player_Combat: {fileID: 58378614}
 --- !u!114 &58378613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2391,6 +2394,26 @@ MonoBehaviour:
   curHealth: 20
   maxHealth: 20
   healthText: {fileID: 758064237}
+--- !u!114 &58378614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58378605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803a77f86da4e5041bbb584c10ec804f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 1891660200}
+  weaponRange: 1.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackDamage: 1
+  anim: {fileID: 58378611}
+  attackCooldown: 1
 --- !u!1 &378233337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,7 +2660,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000002980176, y: 1.2434174e-28, z: -3.7056028e-36, w: 1}
-  m_LocalPosition: {x: -1.8581274, y: -1.8314533, z: 5.104619}
+  m_LocalPosition: {x: -5.958127, y: 1.2085466, z: 5.104619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7407,7 +7430,7 @@ Transform:
   m_GameObject: {fileID: 1486635501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8581274, y: -1.8314533, z: 5.104619}
+  m_LocalPosition: {x: -5.958127, y: 1.2085466, z: 5.104619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22303,7 +22326,8 @@ GameObject:
   - component: {fileID: 1740458823}
   - component: {fileID: 1740458824}
   - component: {fileID: 1740458825}
-  m_Layer: 0
+  - component: {fileID: 1740458826}
+  m_Layer: 6
   m_Name: Enemy_torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22544,6 +22568,51 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 1.9904535, y: 0}
   m_Radius: 3.6987422
+--- !u!114 &1740458826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740458817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0c81f71dae7df4f859855c1c61f6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 5
+  maxHealth: 5
+--- !u!1 &1891660199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891660200}
+  m_Layer: 3
+  m_Name: Attack_point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891660200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891660199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61, y: -0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 58378610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

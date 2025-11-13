@@ -12,6 +12,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isKnockback;
 
+    public Player_combat player_Combat;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Slash"))
+        {
+            player_Combat.Attack();
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

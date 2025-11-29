@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4943b93e7954e034e93fefe3e8bd279d, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: 
+  itemName: Arrow
+  itemDescription: Arrow
+  icon: {fileID: 1007864711610465768, guid: 7b702e3f04176b64db5aa9e2f14335ed, type: 3}
+  isGold: 0
+  stackSize: 12
+  curHealth: 0
+  maxHealth: 0
+  speed: 0
+  damage: 0
+  duration: 0
